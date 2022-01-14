@@ -20,7 +20,7 @@ public class InscriptionsController {
     @PostMapping("api/inscription")
     public ArrayList<User> ajouter(@RequestBody User user){
         for(User inscription:inscriptions){
-            if (inscription.getUserName().equals(user.getUserName()))
+            if (inscription.userName().equals(user.userName()))
                 return inscriptions;
         }
         inscriptions.add(user);
@@ -31,7 +31,7 @@ public class InscriptionsController {
     public ArrayList<Destination> getDestination(@RequestParam String userName){
         ArrayList<Destination> destinations = new ArrayList<>();
         for(User inscription:inscriptions){
-            if (inscription.getUserName().equals(userName)){
+            if (inscription.userName().equals(userName)){
             	destinations.add(new Destination("Germany", 25));
             }
         }
