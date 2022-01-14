@@ -13,12 +13,15 @@ import fr.lernejo.travelsite.models.User;
 
 
 @RestController
-public class InscriptionsController {
+public class destinationsListController {
 	
+	//création de la liste des utilisateurs
     public final ArrayList<User> inscriptions = new ArrayList<>();
     
     @PostMapping("api/inscription")
-    public ArrayList<User> ajouter(@RequestBody User user){
+    public ArrayList<User>
+    append(@RequestBody User user)
+    {
         for(User inscription:inscriptions){
             if (inscription.userName().equals(user.userName()))
                 return inscriptions;
@@ -27,15 +30,18 @@ public class InscriptionsController {
         return inscriptions;
     }
     
+    //création de la liste des destinations selon les préférences utilisateur
     @GetMapping("api/travels")
     public ArrayList<Destination> getDestination(@RequestParam String userName){
         ArrayList<Destination> destinations = new ArrayList<>();
         for(User inscription:inscriptions){
             if (inscription.userName().equals(userName)){
-            	destinations.add(new Destination("Germany", 25));
+            	destinations.add(new Destination("Cuba", 29));
+            	destinations.add(new Destination("Brazil", 28));
+            	destinations.add(new Destination("Australia", 31));
             }
         }
-        
+        //renvoie la liste des destinations
         return destinations;
         
     }
