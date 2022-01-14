@@ -1,5 +1,6 @@
 package fr.lernejo.travelsite.models;
 
+
 public class Destination {
 	private final String country;
     private final  int temperature;
